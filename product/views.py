@@ -8,7 +8,7 @@ def product_list_view(request):
     products=Product.objects.annotate(
         total_price=Coalesce(F('price')-F('discount_price'),0,output_field=FloatField())
     )
-    return render(request,'index.html',{'products':products})
+    return render(request,'list.html',{'products':products})
 
 def product_detail_view(request,id):
     products=Product.objects.annotate(
@@ -20,3 +20,9 @@ def product_detail_view(request,id):
 
     }
     return render(request,'detail.html',text)
+
+def product_create_view(request):
+    text={
+
+    }
+    return render(request,"create.html",text)

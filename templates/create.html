@@ -1,0 +1,19 @@
+<!-- 2) create_view base.html-den inherit alacag. Seyfede sadece baslig olarag "Product Create" ve
+	bir product elave etmek ucun sade form elave edersiz. (adi html formu inputlarla) -->
+
+{% extends "base.html" %}
+{% block title%}
+    <h1>Product Create</h1>
+{%endblock%}
+{% block body %}
+<div>
+<form action="">
+    <input placeholder="name" type="text">
+    <textarea placeholder="description" name="" id="" cols="30" rows="10"></textarea>
+    <input placeholder="price" type="number">
+    <input placeholder="discount_price" type="number" name="" id="">
+    <button>Create</button>
+</form>
+</div>
+    
+{% endblock %}

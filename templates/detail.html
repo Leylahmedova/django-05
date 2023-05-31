@@ -1,18 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+{% extends 'base.html'%}
+{% block title%}
+ <h1>Detail Page</h1>
+   {% for product in products%}
+    <h2>{% if id == product.id %} {{product.name}} {% endif %}</h2>
+   {% endfor %}
+{% endblock %}
+
+{% block body%}
     {% for product in products%}
-    
-   
-        <h1>{% if id == product.id %} {{product.name}}--{% if product.description %} {{product.description}} {% else %} "No description" {% endif %}--{{product.total_price}} {% endif %}</h1>
+        <h2>{% if id == product.id %} {% if product.description %} {{product.description}} {% else %} "No description" {% endif %}--{{product.total_price}} AZN {% endif %}</h2>
        
     {% endfor %}
-</body>
-</html>
+{% endblock %}
+
+
+<!-- 3) detail_view base.html-den inherit alacag. Seyfede baslig productun adi ve daha sonra diger melumatlari gosterilecek -->

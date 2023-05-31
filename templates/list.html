@@ -1,0 +1,16 @@
+
+{% extends "base.html" %}
+{% block title%}
+<h1>Product List</h1>
+{%endblock%}
+{% block body %}
+   <div>
+    {% for product in products%}
+    <ul>
+        <li><a href="http://127.0.0.1:8000/detail/{{product.id}}/">{{product.name}}</a> --{{product.total_price}} AZN--{% if product.description %} {{product.description}} {% else %} "No description" {% endif %}</li>
+       
+    </ul>
+    {% endfor %}
+</div>
+{% endblock %}
+    
