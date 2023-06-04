@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title%}
+
+    <h1>Blog Update</h1>
+{%endblock%}
+
+{% block body %}
+
+<form method="POST">
+{% csrf_token %}
+{% for field in form%}
+<label>{{field.label}}</label>
+{{field}}
+{%endfor%}
+<button>Create</button>
+</form>
+
+
+
+{% endblock %}
+

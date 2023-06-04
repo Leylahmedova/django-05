@@ -1,17 +1,13 @@
 {% extends 'base.html'%}
 {% block title%}
  <h1>Detail Page</h1>
-   {% for product in products%}
-    <h2>{% if id == product.id %} {{product.name}} {% endif %}</h2>
-   {% endfor %}
+  
 {% endblock %}
 
 {% block body%}
-    {% for product in products%}
-        <h2>{% if id == product.id %} {% if product.description %} {{product.description}} {% else %} "No description" {% endif %}--{{product.total_price}} AZN {% endif %}</h2>
-       
-    {% endfor %}
+{% for blog in blogs%}
+<h2>{% if id == blog.id %}{{blog.author_name}}--{{blog.title}}--{{blog.content}}{% endif %}</h2>
+{% endfor %}
 {% endblock %}
 
 
-<!-- 3) detail_view base.html-den inherit alacag. Seyfede baslig productun adi ve daha sonra diger melumatlari gosterilecek -->

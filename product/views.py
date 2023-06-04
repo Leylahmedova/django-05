@@ -1,28 +1,76 @@
-from django.shortcuts import render,HttpResponse
-from .models import Product
-from django.db.models import F,FloatField,ExpressionWrapper
-from django.db.models.functions import Coalesce
+from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
+from .models import Blog
+from .forms import BlogForm
+# from django.db.models import F,FloatField,ExpressionWrapper
+# from django.db.models.functions import Coalesce
 # Create your views here.
 
 def product_list_view(request):
-    products=Product.objects.annotate(
-        total_price=Coalesce(F('price')-F('discount_price'),0,output_field=FloatField())
-    )
-    return render(request,'list.html',{'products':products})
+    blogs=Blog.objects.all()
+    return render(request,'list.html',{'blogs':blogs})
 
 def product_detail_view(request,id):
-    products=Product.objects.annotate(
-        total_price=Coalesce(F('price')-F('discount_price'),0,output_field=FloatField())
-    )
+    blogs=Blog.objects.all()
     text={
         "id":id,
-        "products":products
+        "blogs":blogs
 
     }
     return render(request,'detail.html',text)
 
 def product_create_view(request):
-    text={
+    form=BlogForm()
+    
+    if request.method == "POST":
+        form=BlogForm(request.POST)
 
+        if form.is_valid():
+            form.save()
+
+            return redirect("list")
+
+
+    text={
+        "form":form
     }
     return render(request,"create.html",text)
+
+def product_update_view(request,id):
+    
+    blog=get_object_or_404(Blog,id=id)
+    form=BlogForm(instance=blog)
+    
+    if request.method == "POST":
+        form=BlogForm(request.POST,instance=blog)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect("list")
+
+
+    text={
+        "form":form
+    }
+    return render(request,"update.html",text)
+
+
+
+def product_delete_view(request,id):
+    
+    blog=get_object_or_404(Blog,id=id)
+    form=BlogForm(instance=blog)
+    
+    if request.method == "POST":
+        form=BlogForm(request.POST)
+
+        # if form.is_valid():
+        blog.delete()
+
+        return redirect("list")
+
+
+    text={
+        "form":form
+    }
+    return render(request,"delete.html",text)

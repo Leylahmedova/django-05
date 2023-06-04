@@ -6,7 +6,7 @@
     margin: 0;
 }
 body{
-    background-color: rgb(113, 179, 179);
+    background-color: rgb(96, 211, 211);
     font-family: 'Poppins', sans-serif;
     
 }
@@ -34,6 +34,7 @@ form{
     display: flex;
     flex-direction: column;
     width: 300px;
+    margin: 0 auto;
 }
 textarea{
     resize: none;
@@ -66,10 +67,101 @@ h1{
 h2{
     padding-left: 80px;
 }
-div{
-    padding: 0 80px;
-}
+
 a{
     color: #fff;
     font-size: 20px;
+} 
+footer{
+    background-color: rgb(16, 15, 15);
+    display: flex;
+    font-size: 10px;
+    padding: 20px 0;
 }
+footer>div:nth-of-type(1){
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}
+footer div div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+    text-align: center;
+}
+.div{
+    height: 100vh;
+}
+/* footer
+
+.footer{
+    color: #fff;
+    display: flex !important;
+  }
+.footer__logo img{
+    width: 150px;
+  }
+.footer__contact{
+    text-align: left;
+  }
+.footer__contact h2{
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+.footer__contact h1{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+.footer__contact h1:nth-of-type(2){
+    margin-top: 15px;
+  }
+.footer>div div{
+    display: flex;
+    flex-direction: column;
+  }
+.footer>div div a{
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+.footer>div div img {
+    width: 20px;
+  }
+.footer>div{
+    display: flex;
+    flex-direction: column;
+  }
+.footer__social h2{
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    
+  }
+footer h5{
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    font-weight: 500;
+  }
+.footer__links h2{
+   font-size: 18px;
+   font-weight: 500;
+   margin-bottom: 20px;
+  }
+.footer__links ul li a{
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }

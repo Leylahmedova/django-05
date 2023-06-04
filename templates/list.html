@@ -1,13 +1,13 @@
 
 {% extends "base.html" %}
 {% block title%}
-<h1>Product List</h1>
+<h1>Blog List</h1>
 {%endblock%}
 {% block body %}
-   <div>
-    {% for product in products%}
+   <div class="div">
+    {% for blog in blogs%}
     <ul>
-        <li><a href="{% url 'detail' product.id %}">{{product.name}}</a> --{{product.total_price}} AZN--{% if product.description %} {{product.description}} {% else %} "No description" {% endif %}</li>
+        <li><a href="{% url 'detail' blog.id %}">{{blog.author_name}}</a>--{{blog.title}}--{{blog.content}}</li>
        
     </ul>
     {% endfor %}

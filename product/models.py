@@ -2,14 +2,15 @@ from django.db import models
 
 # Create your models here.
 
-class Product(models.Model):
-    name=models.CharField(max_length=300)
-    description=models.TextField(blank=True,null=True)
-    price=models.FloatField()
-    discount_price=models.FloatField(blank=True,null=True)
+class Blog(models.Model):
+    author_name=models.CharField(max_length=300)
+    title=models.CharField(max_length=300)
+    content=models.TextField(blank=True,null=True)
+    updated_up=models.DateTimeField(auto_now=True,blank=True,null=True)
+    created_up=models.DateTimeField(auto_now_add=True,blank=True,null=True)
 
     def __str__(self):
-        return self.name
+        return self.title
 
 # >>> total_price=Product.objects.annotate(total_price=Coalesce(F("price")-F("discount_price"),0,output_field=FloatField())).values("total_price")
 # >>> total_price

@@ -1,19 +1,33 @@
-<!-- 2) create_view base.html-den inherit alacag. Seyfede sadece baslig olarag "Product Create" ve
-	bir product elave etmek ucun sade form elave edersiz. (adi html formu inputlarla) -->
-
 {% extends "base.html" %}
+
 {% block title%}
-    <h1>Product Create</h1>
+
+    <h1>Blog Create</h1>
 {%endblock%}
+
 {% block body %}
-<div>
-<form action="">
-    <input placeholder="name" type="text">
-    <textarea placeholder="description" name="" id="" cols="30" rows="10"></textarea>
-    <input placeholder="price" type="number">
-    <input placeholder="discount_price" type="number" name="" id="">
+
+<!-- <form method="POST">
+    <div>
+    {% csrf_token %}
+
+    <input placeholder="author-name" type="text">
+    <input placeholder="title" type="text">
+    <textarea placeholder="content" name="" id="" cols="30" rows="10"></textarea>
     <button>Create</button>
 </form>
-</div>
-    
+</div> -->
+<!-- {{form.as_p}} -->
+<form method="POST">
+{% csrf_token %}
+{% for field in form%}
+<label>{{field.label}}</label>
+{{field}}
+{%endfor%}
+<button>Create</button>
+</form>
+
+
+
 {% endblock %}
+
