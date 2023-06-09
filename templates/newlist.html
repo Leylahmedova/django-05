@@ -12,17 +12,16 @@
 <ul>
     {% for product in products %}
         <li>
-           {{product.name}}
+            {{product.name|slash}}
            <br>
-           {{product.total_price|formatize }}
+           <p> Total price: {{ product.total_price|add:10|floatformat:"2" }}</p>
             <br>
-            {% if product.description %}
-            {{ product.description|safe|truncatechars:50 }}
-        {% else %}
-            No description
-        {% endif %}
+            
+            {{ product.description|get_description_length }}
+          
 
-        <p>{{ product.created_at|date:"d.m.Y H:m" }}</p>
+        
+        <p>{{ product.created_at|timesince }}</p>
             
         </li>
         <hr>
