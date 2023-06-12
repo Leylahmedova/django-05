@@ -12,17 +12,20 @@
 <ul>
     {% for product in products %}
         <li>
-           {{product.name}}
+           {{product.name}} <img src="{{product.company_image.url}}" width="300">
            <br>
-           {{product.total_price|formatize }}
+           <!-- {{product.total_price|formatize }} -->
+           {{product.price|formatize }}
             <br>
             {% if product.description %}
             {{ product.description|safe|truncatechars:50 }}
         {% else %}
             No description
         {% endif %}
+        <br>
+        <img src="{{product.image.url}}" width="300">
 
-        <p>{{ product.created_at|date:"d.m.Y H:m" }}</p>
+        <!-- <p>{{ product.created_at|date:"d.m.Y H:m" }}</p> -->
             
         </li>
         <hr>
